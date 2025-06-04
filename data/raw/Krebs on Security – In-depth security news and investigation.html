@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<!--[if lt IE 9]>
+<script src="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<title>Krebs on Security &#8211; In-depth security news and investigation</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security &raquo; Feed" href="https://krebsonsecurity.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security &raquo; Comments Feed" href="https://krebsonsecurity.com/comments/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/krebsonsecurity.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='colorbox-theme1-css' href='https://krebsonsecurity.com/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/theme1/colorbox.css?ver=1.3.14' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://krebsonsecurity.com/wp-includes/css/dist/block-library/style.min.css?ver=6.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://krebsonsecurity.com/wp-includes/css/classic-themes.min.css?ver=6.2.2' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://krebsonsecurity.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='publisho-style-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/style.css?subver=1.2&#038;ver=6.2.2' type='text/css' media='all' />
+<style id='publisho-style-inline-css' type='text/css'>
+
+	.themonic-nav .current-menu-item > a, .themonic-nav .current-menu-ancestor > a, .themonic-nav .current_page_item > a, .themonic-nav .current_page_ancestor > a {
+		background: #cc6600;
+	}
+	.themonic-nav ul.nav-menu, .themonic-nav div.nav-menu > ul {
+		border-bottom: 5px solid #cc6600;
+	}
+	#site-navigation .topheadmenu a {
+    background: rgba(0, 0, 0, 0);
+	}
+	.themonic-nav li a:hover {
+		background: #cc6600;
+	}
+	.themonic-nav li:hover {
+		background: #cc6600;
+	}.wrapper .flexslider {margin: 0 0 30px;}.frontp .btm-wrap {
+    border-top: 1px solid #e9e9e9;
+	}
+	.entry-summary {
+    border-top: none;
+	}.frontp .btm-wrap { margin-bottom: 30px;}.site { font-size:14px;}.site { font-family:'Roboto', arial ;}
+</style>
+<link rel='stylesheet' id='publisho-custom-style-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/custom.css?subver=1.2&#038;ver=6.2.2' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='publisho-ie-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/css/ie.css?ver=20160606' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='fontawesome-css-css' href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/fonts/font-awesome.min.css?ver=6.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='publisho_custom_fonts-css' href='//fonts.googleapis.com/css?family=Roboto%3Aregular%2Citalic%2C500%26subset%3Dlatin%2C' type='text/css' media='screen' />
+<style id='akismet-widget-style-inline-css' type='text/css'>
+
+			.a-stats {
+				--akismet-color-mid-green: #357b49;
+				--akismet-color-white: #fff;
+				--akismet-color-light-grey: #f6f7f7;
+
+				max-width: 350px;
+				width: auto;
+			}
+
+			.a-stats * {
+				all: unset;
+				box-sizing: border-box;
+			}
+
+			.a-stats strong {
+				font-weight: 600;
+			}
+
+			.a-stats a.a-stats__link,
+			.a-stats a.a-stats__link:visited,
+			.a-stats a.a-stats__link:active {
+				background: var(--akismet-color-mid-green);
+				border: none;
+				box-shadow: none;
+				border-radius: 8px;
+				color: var(--akismet-color-white);
+				cursor: pointer;
+				display: block;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+				font-weight: 500;
+				padding: 12px;
+				text-align: center;
+				text-decoration: none;
+				transition: all 0.2s ease;
+			}
+
+			/* Extra specificity to deal with TwentyTwentyOne focus style */
+			.widget .a-stats a.a-stats__link:focus {
+				background: var(--akismet-color-mid-green);
+				color: var(--akismet-color-white);
+				text-decoration: none;
+			}
+
+			.a-stats a.a-stats__link:hover {
+				filter: brightness(110%);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 0 2px rgba(0, 0, 0, 0.16);
+			}
+
+			.a-stats .count {
+				color: var(--akismet-color-white);
+				display: block;
+				font-size: 1.5em;
+				line-height: 1.4;
+				padding: 0 13px;
+				white-space: nowrap;
+			}
+		
+</style>
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js'></script>
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/jquery.colorbox-min.js?ver=1.3.14' id='colorbox-js'></script>
+<link rel="https://api.w.org/" href="https://krebsonsecurity.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://krebsonsecurity.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://krebsonsecurity.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.2" />
+<!-- JavaScript Pull-Quotes plugin v2.2 -->
+	<link rel="stylesheet" href="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes-core.css" type="text/css" />
+	<link rel="stylesheet" href="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes-default.css" type="text/css" />
+	<script type="text/javascript" src="https://krebsonsecurity.com/wp-content/plugins/jspullquotes/resources/jspullquotes.js"></script>
+	<script type="text/javascript">
+		var arrOptions = new Array("1", "1", "right", "1", "1", "blockquote", "pullquote", "pullquote pqRight");
+		pullQuoteOpts(arrOptions);
+	</script>
+<!-- end pull-quote additions -->
+<!-- jQuery Lightbox For Native Galleries v3.1.3 | http://www.viper007bond.com/wordpress-plugins/jquery-lightbox-for-native-galleries/ -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(document).ready(function($){
+		$(".gallery").each(function(index, obj){
+			var galleryid = Math.floor(Math.random()*10000);
+			$(obj).find("a").colorbox({rel:galleryid, maxWidth:"95%", maxHeight:"95%"});
+		});
+		$("a.lightbox").colorbox({maxWidth:"95%", maxHeight:"95%"});
+	});
+// ]]>
+</script>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	<link rel="me" href="https://twitter.com/briankrebs" /><meta name="twitter:widgets:link-color" content="#000000" /><meta name="twitter:widgets:border-color" content="#000000" /><meta name="twitter:partner" content="tfwp" />
+<meta name="twitter:card" content="summary" /><meta name="twitter:title" content="Krebs on Security" /><meta name="twitter:site" content="@briankrebs" /><meta name="twitter:description" content="In-depth security news and investigation" />
+</head>
+<body class="home blog custom-background custom-background-white single-author frontp hfeed">
+<div id="page" class="site">
+	<!-- <div class="publisho-top-mobile-nav clear"></div> -->
+	<div class="themonic-logo themonic-ad3"><div class="a-statement">Advertisement</div><a href="https://www.netcraft.com/forrester-tei-report/?utm_source=KOS&amp;utm_medium=display&amp;utm_campaign=KOS-TEI">
+<img src="/b-netcraft/1.jpg">
+</a></div>
+	<div class="themonic-logo themonic-ad6"><div class="a-statement">Advertisement</div><a href="https://ninjio.com/lp46d-krebs/">
+<img src="/b-ninjio/7.png">
+</a>
+</div>
+	<nav id="site-navigation" class="themonic-nav" role="navigation">
+	</nav><!-- #site-navigation -->
+	<div class="clear"></div>
+	<header id="masthead" class="site-header" role="banner">
+ 					<div class="desktop-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+				 	</div>
+																						   
+		
+		<div class="themonic-logo responsive-img-container">
+			<a href="https://krebsonsecurity.com/" title="Krebs on Security" rel="home"><img src="https://krebsonsecurity.com/wp-content/uploads/2021/03/kos-27-03-2021.jpg" alt="Krebs on Security"></a>
+		</div>
+
+					<div class="mobile-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+					</div>
+		
+				<!-- <div class="publisho-mobile-nav clear"></div> -->
+		<nav id="site-navigation" class="themonic-nav" role="navigation">
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div id="menu-top" class="nav-menu"><ul>
+<li class="current_page_item"><a href="https://krebsonsecurity.com/">Home</a></li><li class="page_item page-item-2"><a href="https://krebsonsecurity.com/about/">About the Author</a></li>
+<li class="page_item page-item-645"><a href="https://krebsonsecurity.com/cpm/">Advertising/Speaking</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+		<div class="clear"></div>
+	</header><!-- #masthead -->
+	<div id="main" class="wrapper">
+		<div id="primary" class="site-content">
+	
+
+	
+		<div id="content" role="main">
+
+		<article id="post-71351" class="post-71351 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-neer-do-well-news category-russias-war-on-ukraine tag-aleksandr-stepanov tag-artem-aleksandrovich-kalinkin tag-danabot tag-dcis tag-defense-criminal-investigative-service tag-eset tag-fbi tag-flashpoint tag-google tag-intel-471 tag-jimmbee tag-lumen tag-lumma-stealer tag-maffiozi tag-microsoft tag-onix tag-paypal tag-proofpoint tag-team-cyrmu tag-u-s-department-of-justice tag-zscaler">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/05/oops-danabot-malware-devs-infected-their-own-pcs/" title="Permalink to Oops: DanaBot Malware Devs Infected Their Own PCs" rel="bookmark">Oops: DanaBot Malware Devs Infected Their Own PCs</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 22, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/05/oops-danabot-malware-devs-infected-their-own-pcs/#comments">9 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>The U.S. government today unsealed criminal charges against 16 individuals accused of operating and selling <strong>DanaBot</strong>, a prolific strain of information-stealing malware that has been sold on Russian cybercrime forums since 2018. The <strong>FBI</strong> says a newer version of DanaBot was used for espionage, and that many of the defendants exposed their real-life identities after accidentally infecting their own systems with the malware.</p>
+<div id="attachment_71354" style="width: 759px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71354" decoding="async" class=" wp-image-71354" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/danabot.png" alt="" width="749" height="650" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/danabot.png 817w, https://krebsonsecurity.com/wp-content/uploads/2025/05/danabot-768x666.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/danabot-782x679.png 782w" sizes="(max-width: 749px) 100vw, 749px" /><p id="caption-attachment-71354" class="wp-caption-text">DanaBot&#8217;s features, as promoted on its support site. Image: welivesecurity.com.</p></div>
+<p>Initially <a href="https://www.proofpoint.com/us/threat-insight/post/danabot-new-banking-trojan-surfaces-down-under-0" target="_blank" rel="noopener">spotted</a> in May 2018 by researchers at the email security firm <strong>Proofpoint</strong>, DanaBot is a malware-as-a-service platform that specializes in credential theft and banking fraud.</p>
+<p>Today, the <strong>U.S. Department of Justice</strong> unsealed a criminal complaint and indictment from 2022, which said the FBI identified at least 40 affiliates who were paying between $3,000 and $4,000 a month for access to the information stealer platform.</p>
+<p>The government says the malware infected more than 300,000 systems globally, causing estimated losses of more than $50 million. The ringleaders of the DanaBot conspiracy are named as <strong>Aleksandr Stepanov</strong>, 39, a.k.a. “<strong>JimmBee</strong>,” and <strong>Artem Aleksandrovich Kalinkin</strong>, 34, a.k.a. “<strong>Onix</strong>”, both of Novosibirsk, Russia. Kalinkin is an IT engineer for the Russian state-owned energy giant <strong>Gazprom</strong>. His Facebook profile name is &#8220;Maffiozi.&#8221;</p>
+<p>According to the FBI, there were at least two major versions of DanaBot; the first was sold between 2018 and June 2020, when the malware stopped being offered on Russian cybercrime forums. The government alleges that the second version of DanaBot &#8212; emerging in January 2021 &#8212; was provided to co-conspirators for use in targeting military, diplomatic and non-governmental organization computers in several countries, including the United States, Belarus, the United Kingdom, Germany, and Russia.</p>
+<p>&#8220;Unindicted co-conspirators would use the Espionage Variant to compromise computers around the world and steal sensitive diplomatic communications, credentials, and other data from these targeted victims,&#8221; reads a grand jury indictment dated Sept. 20, 2022. &#8220;This stolen data included financial transactions by diplomatic staff, correspondence concerning day-to-day diplomatic activity, as well as summaries of a particular country&#8217;s interactions with the United States.&#8221;</p>
+<p>The indictment says the FBI in 2022 seized servers used by the DanaBot authors to control their malware, as well as the servers that stored stolen victim data. The government said the server data also show numerous instances in which the DanaBot defendants infected their own PCs, resulting in their credential data being uploaded to stolen data repositories that were seized by the feds.</p>
+<p>&#8220;In some cases, such self-infections appeared to be deliberately done in order to test, analyze, or improve the malware,&#8221; the criminal complaint reads. &#8220;In other cases, the infections seemed to be inadvertent &#8211; one of the hazards of committing cybercrime is that criminals will sometimes infect themselves with their own malware by mistake.&#8221; <a href="https://krebsonsecurity.com/2025/05/oops-danabot-malware-devs-infected-their-own-pcs/#more-71351" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+	<div id="between_article_ad" class="themonic-ad5"><a href="https://1password.com/extended-access-management?utm_source=krebs&amp;utm_medium=display&amp;utm_campaign=sa_all_amer_english_rsa-2025_awareness_2025-04&amp;utm_content=static&amp;utm_term=ros">
+<img src="/b-1password/12.png">
+</a></div>	<article id="post-71303" class="post-71303 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-breadcrumbs category-ddos-for-hire category-internet-of-things-iot category-neer-do-well-news category-comingstorm tag-aisuru-botnet tag-akamai tag-booter tag-cloudflare tag-damian-menscher tag-ddos tag-fbi tag-forky tag-kaike-southier-leite tag-mirai tag-project-shield tag-qianxin-xlab tag-stresser tag-u-s-department-of-justice tag-yfork">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/05/krebsonsecurity-hit-with-near-record-6-3-tbps-ddos/" title="Permalink to KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS" rel="bookmark">KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 20, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/05/krebsonsecurity-hit-with-near-record-6-3-tbps-ddos/#comments">38 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>KrebsOnSecurity last week was hit by a near record distributed denial-of-service (DDoS) attack that clocked in at more than 6.3 terabits of data per second (a terabit is one trillion bits of data). The brief attack appears to have been a test run for a massive new Internet of Things (IoT) botnet capable of launching crippling digital assaults that few web destinations can withstand. Read on for more about the botnet, the attack, and the apparent creator of this global menace.</p>
+<p><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-71312" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/ddosbomb.png" alt="" width="661" height="542" /></p>
+<p>For reference, the 6.3 Tbps attack last week was ten times the size of the assault launched against this site in 2016 by the <strong>Mirai</strong> IoT botnet, which <a href="https://krebsonsecurity.com/2016/09/the-democratization-of-censorship/" target="_blank" rel="noopener">held KrebsOnSecurity offline for nearly four days</a>. The 2016 assault was so large that <strong>Akamai</strong> &#8211; which was providing pro-bono DDoS protection for KrebsOnSecurity at the time &#8212; asked me to leave their service because the attack was causing problems for their paying customers.</p>
+<p>Since the Mirai attack, KrebsOnSecurity.com has been behind the protection of <strong>Project Shield</strong>, a free DDoS defense service that <strong>Google</strong> provides to websites offering news, human rights, and election-related content. Google Security Engineer <strong>Damian Menscher</strong> told KrebsOnSecurity the May 12 attack was the largest Google has ever handled. In terms of sheer size, it is second only to a very similar attack that <strong>Cloudflare</strong> mitigated and <a href="https://blog.cloudflare.com/ddos-threat-report-for-2025-q1/#hyper-volumetric-attacks-continue-spill-into-q2" target="_blank" rel="noopener">wrote about in April</a>.</p>
+<p>After comparing notes with Cloudflare, Menscher said the botnet that launched both attacks bears the fingerprints of <strong>Aisuru</strong>, a digital siege machine that first surfaced less than a year ago. Menscher said the attack on KrebsOnSecurity lasted less than a minute, hurling <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/udp-reflection-attacks.html" target="_blank" rel="noopener">large UDP data packets</a> at random ports <em>at a rate of approximately 585 million data packets per second</em>.</p>
+<p>&#8220;It was the type of attack normally designed to overwhelm network links,&#8221; Menscher said, referring to the throughput connections between and among various Internet service providers (ISPs). &#8220;For most companies, this size of attack would kill them.&#8221;</p>
+<div id="attachment_71311" style="width: 759px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/05/cf-6.5ddos.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71311" decoding="async" loading="lazy" class="wp-image-71311" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/cf-6.5ddos.png" alt="" width="749" height="340" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/cf-6.5ddos.png 906w, https://krebsonsecurity.com/wp-content/uploads/2025/05/cf-6.5ddos-768x348.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/cf-6.5ddos-782x355.png 782w" sizes="(max-width: 749px) 100vw, 749px" /></a><p id="caption-attachment-71311" class="wp-caption-text">A graph depicting the 6.5 Tbps attack mitigated by Cloudflare in April 2025. Image: Cloudflare.</p></div>
+<p>The Aisuru botnet comprises a globally-dispersed collection of hacked IoT devices, including routers, digital video recorders and other systems that are commandeered via default passwords or software vulnerabilities. As <a href="https://blog.xlab.qianxin.com/large-scale-botnet-airashi-en/" target="_blank" rel="noopener">documented</a> by researchers at <strong>QiAnXin XLab</strong>, the botnet was first identified in an August 2024 attack on a large gaming platform.</p>
+<p>Aisuru reportedly went quiet after that exposure, only to reappear in November with even more firepower and software exploits. In a <a href="https://blog.xlab.qianxin.com/large-scale-botnet-airashi-en/" target="_blank" rel="noopener">January 2025 report</a>, XLab found the new and improved Aisuru (a.k.a. &#8220;<strong>Airashi</strong>&#8220;) had incorporated a previously unknown zero-day vulnerability in Cambium Networks cnPilot routers.</p>
+<h2>NOT FORKING AROUND</h2>
+<p>The people behind the Aisuru botnet have been peddling access to their DDoS machine in public <strong>Telegram</strong> chat channels that are closely monitored by multiple security firms. In August 2024, the botnet was rented out in subscription tiers ranging from $150 per day to $600 per week, offering attacks of up to two terabits per second.</p>
+<p>&#8220;You may not attack any measurement walls, healthcare facilities, schools or government sites,&#8221; read a notice posted on Telegram by the Aisuru botnet owners in August 2024.</p>
+<p>Interested parties were told to contact the Telegram handle &#8220;<strong>@yfork</strong>&#8221; to purchase a subscription. The account @yfork previously used the nickname &#8220;<strong>Forky</strong>,&#8221; an identity that has been posting to public DDoS-focused Telegram channels since 2021.</p>
+<p>According to the FBI, Forky&#8217;s DDoS-for-hire domains have been seized in multiple law enforcement operations over the years. Last year, Forky said on Telegram he was selling the domain <strong>stresser[.]best</strong>, which saw its servers seized by the FBI in 2022 as part of an ongoing international law enforcement effort aimed at diminishing the supply of and demand for DDoS-for-hire services.</p>
+<p>&#8220;The operator of this service, who calls himself &#8216;Forky,&#8217; operates a Telegram channel to advertise features and communicate with current and prospective DDoS customers,&#8221; reads <a href="https://krebsonsecurity.com/wp-content/uploads/2025/05/Booter-seizure-warrant-Tucows-2.pdf" target="_blank" rel="noopener">an FBI seizure warrant</a> (PDF) issued for stresser[.]best. The FBI warrant stated that on the same day the seizures were announced, Forky posted <a href="https://krebsonsecurity.com/2022/12/six-charged-in-mass-takedown-of-ddos-for-hire-sites/" target="_blank" rel="noopener">a link to a story on this blog</a> that detailed the domain seizure operation, adding the comment, “We are buying our new domains right now.”</p>
+<div id="attachment_71315" style="width: 758px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71315" decoding="async" loading="lazy" class=" wp-image-71315" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/stresserbest.png" alt="" width="748" height="663" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/stresserbest.png 953w, https://krebsonsecurity.com/wp-content/uploads/2025/05/stresserbest-768x681.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/stresserbest-782x693.png 782w" sizes="(max-width: 748px) 100vw, 748px" /><p id="caption-attachment-71315" class="wp-caption-text">A screenshot from the FBI&#8217;s seizure warrant for Forky&#8217;s DDoS-for-hire domains shows Forky announcing the resurrection of their service at new domains.</p></div>
+<p>Approximately ten hours later, Forky posted again, including a screenshot of the stresser[.]best user dashboard, instructing customers to use their saved passwords for the old website on the new one.</p>
+<p>A review of Forky&#8217;s posts to public Telegram channels &#8212; as indexed by the cyber intelligence firms <strong>Unit 221B</strong> and <strong>Flashpoint</strong> &#8212; reveals a 21-year-old individual who claims to reside in Brazil [full disclosure: Flashpoint is currently an advertiser on this blog].</p>
+<p>Since late 2022, Forky&#8217;s posts have frequently promoted a DDoS mitigation company and ISP that he operates called <strong>botshield[.]io</strong>. The Botshield website is connected to a business entity registered in the United Kingdom called <a href="https://find-and-update.company-information.service.gov.uk/officers/krPZ3H9McgoRJbksmVWst3yc9G0/appointments" target="_blank" rel="noopener">Botshield LTD</a>, which lists a 21-year-old woman from Sao Paulo, Brazil as the director. Internet routing records indicate Botshield (<a href="https://ipinfo.io/AS213613" target="_blank" rel="noopener">AS213613</a>) currently controls several hundred Internet addresses that were allocated to the company earlier this year.</p>
+<p><strong>Domaintools.com</strong> reports that botshield[.]io was registered in July 2022 to a <strong>Kaike Southier Leite</strong> in Sao Paulo. A <a href="https://www.linkedin.com/in/kaike-southier-5074b82b6/" target="_blank" rel="noopener">LinkedIn profile</a> by the same name says this individual is a network specialist from Brazil who works in &#8220;the planning and implementation of robust network infrastructures, with a focus on security, DDoS mitigation, colocation and cloud server services.&#8221;</p>
+<h2>MEET FORKY</h2>
+<div id="attachment_71314" style="width: 789px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71314" decoding="async" loading="lazy" class="wp-image-71314 size-full" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/forky.png" alt="" width="779" height="519" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/forky.png 779w, https://krebsonsecurity.com/wp-content/uploads/2025/05/forky-768x512.png 768w" sizes="(max-width: 779px) 100vw, 779px" /><p id="caption-attachment-71314" class="wp-caption-text">Image: Jaclyn Vernace / Shutterstock.com.</p></div>
+<p>In his posts to public Telegram chat channels, Forky has hardly attempted to conceal his whereabouts or identity. In countless chat conversations indexed by Unit 221B, Forky could be seen talking about everyday life in Brazil, often remarking on the extremely low or high prices in Brazil for a range of goods, from computer and networking gear to narcotics and food.</p>
+<p>Reached via Telegram, Forky claimed he was &#8220;not involved in this type of illegal actions for years now,&#8221; and that the project had been taken over by other unspecified developers. Forky initially told KrebsOnSecurity he had been out of the botnet scene for years, only to concede this wasn&#8217;t true when presented with public posts on Telegram from late last year that clearly showed otherwise.</p>
+<p>Forky denied being involved in the attack on KrebsOnSecurity, but acknowledged that he helped to develop and market the Aisuru botnet. Forky claims he is now merely a staff member for the Aisuru botnet team, and that he stopped running the botnet roughly two months ago after starting a family. Forky also said the woman named as director of Botshield is related to him.</p>
+<p>Forky offered equivocal, evasive responses to a number of questions about the Aisuru botnet and his business endeavors. But on one point he was crystal clear:</p>
+<p>&#8220;I have zero fear about you, the FBI, or Interpol,&#8221; Forky said, asserting that he is now almost entirely focused on their hosting business &#8212; Botshield. <a href="https://krebsonsecurity.com/2025/05/krebsonsecurity-hit-with-near-record-6-3-tbps-ddos/#more-71303" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+	<div class="themonic-ad2"><div class="a-statement">Advertisement</div></div>	<article id="post-71263" class="post-71263 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-data-breaches category-neer-do-well-news tag-breachforums tag-cipriani-werner tag-conor-brian-fitzpatrick tag-jill-fertel tag-mark-rasch tag-nonstop-health tag-pompompurin tag-raidforums tag-unit-221b">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/05/breachforums-boss-to-pay-700k-in-healthcare-breach/" title="Permalink to Breachforums Boss to Pay $700k in Healthcare Breach" rel="bookmark">Breachforums Boss to Pay $700k in Healthcare Breach</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 15, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/05/breachforums-boss-to-pay-700k-in-healthcare-breach/#comments">23 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>In what experts are calling a novel legal outcome, the 22-year-old former administrator of the cybercrime community <strong>Breachforums </strong>will forfeit nearly $700,000 to settle a civil lawsuit from a health insurance company whose customer data was posted for sale on the forum in 2023. <strong>Conor Brian Fitzpatrick</strong>, a.k.a. &#8220;<strong>Pompompurin</strong>,&#8221; is slated for resentencing next month after pleading guilty to access device fraud and possession of child sexual abuse material (CSAM).</p>
+<div id="attachment_71274" style="width: 985px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71274" decoding="async" loading="lazy" class="size-full wp-image-71274" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/breached-nonstop.png" alt="" width="975" height="364" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/breached-nonstop.png 975w, https://krebsonsecurity.com/wp-content/uploads/2025/05/breached-nonstop-768x287.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/breached-nonstop-782x292.png 782w" sizes="(max-width: 975px) 100vw, 975px" /><p id="caption-attachment-71274" class="wp-caption-text">A redacted screenshot of the Breachforums sales thread. Image: Ke-la.com.</p></div>
+<p>On January 18, 2023, denizens of Breachforums posted for sale tens of thousands of records &#8212; including Social Security numbers, dates of birth, addresses, and phone numbers  &#8212; stolen from <strong>Nonstop Health</strong>, an insurance provider based in Concord, Calif.</p>
+<p>Class-action attorneys sued Nonstop Health, which added Fitzpatrick as a third-party defendant to the civil litigation in November 2023, several months after he was <a href="https://krebsonsecurity.com/2023/03/feds-charge-ny-man-as-breachforums-boss-pompompurin/" target="_blank" rel="noopener">arrested by the FBI</a> and criminally charged with access device fraud and CSAM possession. In January 2025, Nonstop <a href="https://topclassactions.com/lawsuit-settlements/closed-settlements/1-6m-nonstop-administration-and-insurance-services-data-breach-class-action-settlement/" target="_blank" rel="noopener">agreed to pay $1.5 million</a> to settle the class action.</p>
+<p><strong>Jill Fertel</strong> is a former prosecutor who runs the cyber litigation practice at <strong>Cipriani &amp; Werner</strong>, the law firm that represented Nonstop Health. Fertel told KrebsOnSecurity this is the first and only case where a cybercriminal or anyone related to the security incident was actually named in civil litigation.</p>
+<p>&#8220;Civil plaintiffs are not at all likely to see money seized from threat actors involved in the incident to be made available to people impacted by the breach,&#8221; Fertel said. &#8220;The best we could do was make this money available to the class, but it&#8217;s still incumbent on the members of the class who are impacted to make that claim.&#8221;</p>
+<p><strong>Mark Rasch</strong> is a former federal prosecutor who now represents <strong>Unit 221B</strong>, a cybersecurity firm based in New York City. Rasch said he doesn&#8217;t doubt that the civil settlement involving Fitzpatrick&#8217;s criminal activity is a novel legal development.</p>
+<p>&#8220;It is rare in these civil cases that you know the threat actor involved in the breach, and it&#8217;s also rare that you catch them with sufficient resources to be able to pay a claim,&#8221; Rasch said.</p>
+<p>Despite admitting to possessing more than 600 CSAM images and personally operating Breachforums, Fitzpatrick was <a href="https://cyberscoop.com/jailed-breachforums-creator-admin-sentenced-to-20-years-of-supervised-release/" target="_blank" rel="noopener">sentenced in January 2024 to time served</a> and 20 years of supervised release. Federal prosecutors objected, arguing that his punishment failed to adequately reflect the seriousness of his crimes or serve as a deterrent.</p>
+<div id="attachment_71269" style="width: 759px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71269" decoding="async" loading="lazy" class=" wp-image-71269" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/pom-csam.png" alt="" width="749" height="299" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/pom-csam.png 789w, https://krebsonsecurity.com/wp-content/uploads/2025/05/pom-csam-768x307.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/pom-csam-782x312.png 782w" sizes="(max-width: 749px) 100vw, 749px" /><p id="caption-attachment-71269" class="wp-caption-text">An excerpt from a pre-sentencing report for Fitzpatrick indicates he had more than 600 CSAM images on his devices.</p></div>
+<p>Indeed, the same month he was sentenced Fitzpatrick <a href="https://dd80b675424c132b90b3-e48385e382d2e5d17821a5e1d8e4c86b.ssl.cf1.rackcdn.com/external/sdny-24mj003-waiver-jan22024.pdf" target="_blank" rel="noopener">was rearrested</a> (PDF) for violating the terms of his release, which forbade him from using a computer that didn&#8217;t have court-required monitoring software installed.</p>
+<p>Federal prosecutors said Fitzpatrick went on Discord following his guilty plea and <a href="https://law.justia.com/cases/federal/appellate-courts/ca4/24-4102/24-4102-2025-01-21.html" target="_blank" rel="noopener">professed innocence</a> to the very crimes to which he&#8217;d pleaded guilty, stating that his plea deal was &#8220;so BS&#8221; and that he had &#8220;wanted to fight it.&#8221; The feds said Fitzpatrick also joked with his friends about selling data to foreign governments, exhorting one user to &#8220;become a foreign asset to china or russia,&#8221; and to &#8220;sell government secrets.&#8221; <a href="https://krebsonsecurity.com/2025/05/breachforums-boss-to-pay-700k-in-healthcare-breach/#more-71263" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-71250" class="post-71250 post type-post status-publish format-standard has-post-thumbnail hentry category-latest-warnings category-comingstorm category-patches tag-adam-barnett tag-cve-2025-30397 tag-cve-2025-30400 tag-cve-2025-32701 tag-cve-2025-32706 tag-cve-2025-32709 tag-immersive-labs tag-kev-breen tag-microsoft-patch-tuesday-may-2025 tag-rapid7 tag-windows-common-log-file-system">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/05/patch-tuesday-may-2025-edition/" title="Permalink to Patch Tuesday, May 2025 Edition" rel="bookmark">Patch Tuesday, May 2025 Edition</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 14, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/05/patch-tuesday-may-2025-edition/#comments">25 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p><strong>Microsoft</strong> on Tuesday released software updates to fix at least 70 vulnerabilities in <strong>Windows</strong> and related products, including <em>five zero-day flaws that are already seeing active exploitation</em>. Adding to the sense of urgency with this month&#8217;s patch batch from Redmond are fixes for two other weaknesses that now have public proof-of-concept exploits available.</p>
+<p><img decoding="async" loading="lazy" class="aligncenter  wp-image-60331" src="https://krebsonsecurity.com/wp-content/uploads/2022/07/winupdatedate.png" alt="" width="749" height="496" srcset="https://krebsonsecurity.com/wp-content/uploads/2022/07/winupdatedate.png 923w, https://krebsonsecurity.com/wp-content/uploads/2022/07/winupdatedate-768x508.png 768w, https://krebsonsecurity.com/wp-content/uploads/2022/07/winupdatedate-782x518.png 782w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>Microsoft and several security firms have disclosed that attackers are exploiting a pair of bugs in the <strong>Windows Common Log File System</strong> (CLFS) driver that allow attackers to elevate their privileges on a vulnerable device. The Windows CLFS is a critical Windows component responsible for logging services, and is widely used by Windows system services and third-party applications for logging. Tracked as <a href="https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-32701" target="_blank" rel="noopener">CVE-2025-32701</a> &amp; <a href="https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-32706" target="_blank" rel="noopener">CVE-2025-32706</a>, these flaws are present in all supported versions of Windows 10 and 11, as well as their server versions.</p>
+<p><strong>Kev Breen</strong>, senior director of threat research at <strong>Immersive Labs</strong>, said privilege escalation bugs assume an attacker already has initial access to a compromised host, typically through a phishing attack or by using stolen credentials. But if that access already exists, Breen said, attackers can gain access to the much more powerful Windows SYSTEM account, which can disable security tooling or even gain domain administration level permissions using credential harvesting tools.</p>
+<p>&#8220;The patch notes don&#8217;t provide technical details on how this is being exploited, and no Indicators of Compromise (IOCs) are shared, meaning the only mitigation security teams have is to apply these patches immediately,&#8221; he said. &#8220;The average time from public disclosure to exploitation at scale is less than five days, with threat actors, ransomware groups, and affiliates quick to leverage these vulnerabilities.&#8221;</p>
+<p>Two other zero-days patched by Microsoft today also were elevation of privilege flaws: <a href="https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-32709" target="_blank" rel="noopener">CVE-2025-32709</a>, which concerns afd.sys, the <strong>Windows Ancillary Function Driver</strong> that enables Windows applications to connect to the Internet; and <a href="https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-30400" target="_blank" rel="noopener">CVE-2025-30400</a>, a weakness in the <strong>Desktop Window Manager</strong> (DWM) library for Windows. As <strong>Adam Barnett</strong> at <strong>Rapid7</strong> notes, tomorrow marks the <a href="https://www.rapid7.com/blog/post/2024/05/14/patch-tuesday-may-2024/" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://www.rapid7.com/blog/post/2024/05/14/patch-tuesday-may-2024/&amp;source=gmail&amp;ust=1747257386891000&amp;usg=AOvVaw3VPzmtS8Na55bRRDOUkbDw">one-year anniversary</a> of <a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2024-30051" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2024-30051&amp;source=gmail&amp;ust=1747257386891000&amp;usg=AOvVaw2HzZh4Tm-0eKXolluDR0FX">CVE-2024-30051</a>, a previous zero-day elevation of privilege vulnerability in this same DWM component.</p>
+<p>The fifth zero-day patched today is <a href="https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-30397" target="_blank" rel="noopener">CVE-2025-30397</a>, a flaw in the <strong>Microsoft Scripting Engine</strong>, a key component used by <strong>Internet Explorer</strong> and <strong>Internet Explorer mode</strong> in <strong>Microsoft Edge</strong>. <a href="https://krebsonsecurity.com/2025/05/patch-tuesday-may-2025-edition/#more-71250" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-70782" class="post-70782 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-breadcrumbs category-neer-do-well-news category-web-fraud-2-0 tag-360-digital-marketing-llc tag-abtach tag-axact tag-azneem-bilwani tag-digitonics-labs tag-eworldtrade tag-federal-investigation-agency tag-intersys-limited tag-junaid-mansoor tag-majestic-ghostwriting tag-muhammad-burhan-mirza tag-natinfosec tag-octa-group-technologies-au tag-qasim-mansoor tag-retrocube-llc tag-the-new-york-times tag-u-s-department-of-justice tag-u-s-patent-and-trademark-office tag-vertical-minds-llc">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/05/pakistani-firm-shipped-fentanyl-analogs-scams-to-us/" title="Permalink to Pakistani Firm Shipped Fentanyl Analogs, Scams to US" rel="bookmark">Pakistani Firm Shipped Fentanyl Analogs, Scams to US</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 7, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/05/pakistani-firm-shipped-fentanyl-analogs-scams-to-us/#comments">30 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>A Texas firm recently charged with conspiring to distribute synthetic opioids in the United States is at the center of a vast network of companies in the U.S. and Pakistan whose employees are accused of using online ads to scam westerners seeking help with trademarks, book writing, mobile app development and logo designs, a new investigation reveals.</p>
+<p>In <a href="https://krebsonsecurity.com/wp-content/uploads/2025/04/motion_to_seal_eWorldTrade_Azneem_Bilwani_Abtach_drugs_merged_usa_vs_eworldtradellc-1.pdf" target="_blank" rel="noopener">an indictment</a> (PDF) unsealed last month, the <strong>U.S. Department of Justice</strong> said Dallas-based <strong>eWorldTrade</strong> &#8220;operated an online business-to-business marketplace that facilitated the distribution of synthetic opioids such as isotonitazene and carfentanyl, both significantly more potent than fentanyl.&#8221;</p>
+<p>Launched in 2017, eWorldTrade[.]com now features <a href="https://www.justice.gov/opa/pr/us-online-marketplace-operator-charged-trafficking-deadly-synthetic-opioids-stronger" target="_blank" rel="noopener">a seizure notice</a> from the DOJ. eWorldTrade operated as a wholesale seller of consumer goods, including clothes, machinery, chemicals, automobiles and appliances. The DOJ&#8217;s indictment includes no additional details about eWorldTrade&#8217;s business, origins or other activity, and at first glance the website might appear to be a legitimate e-commerce platform that also just happened to sell some restricted chemicals.</p>
+<div id="attachment_71137" style="width: 760px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71137" decoding="async" loading="lazy" class=" wp-image-71137" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/eworldtrade.png" alt="" width="750" height="310" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/eworldtrade.png 1901w, https://krebsonsecurity.com/wp-content/uploads/2025/04/eworldtrade-768x318.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/eworldtrade-1536x636.png 1536w, https://krebsonsecurity.com/wp-content/uploads/2025/04/eworldtrade-782x324.png 782w" sizes="(max-width: 750px) 100vw, 750px" /><p id="caption-attachment-71137" class="wp-caption-text">A screenshot of the eWorldTrade homepage on March 25, 2025. Image: archive.org.</p></div>
+<p>However, an investigation into the company&#8217;s founders reveals they are connected to a sprawling network of websites that have a history of extortionate scams involving trademark registration, book publishing, exam preparation, and the design of logos, mobile applications and websites.</p>
+<p><a href="https://uspto.report/TM/98283759/ELR20240903134921/" target="_blank" rel="noopener">Records</a> from the <strong>U.S. Patent and Trademark Office </strong>(USPTO) show the eWorldTrade mark is owned by an <a href="https://www.linkedin.com/in/azneem-bilwani-1630291a/" target="_blank" rel="noopener"><b>Azneem Bilwani </b></a>in Karachi (this name also is in the registration records for the now-seized eWorldTrade domain). Mr. Bilwani is perhaps better known as the director of the Pakistan-based IT provider <strong>Abtach Ltd.</strong>, which has been <a href="https://www.uspto.gov/sites/default/files/documents/TM-Show-Cause-Order-Abtach-et-al.pdf" target="_blank" rel="noopener">singled out</a> by the USPTO <a href="https://www.worldtrademarkreview.com/data/wtr-investigation-exclusives/wtr-investigation-exclusives/article/google-blocks-ads-trademark-terminal-operator-abtach-following-uspto-action" target="_blank" rel="noopener">and Google</a> for operating trademark registration scams (the main offices for <span style="font-weight: 400;">eWorldtrade and Abtach share the same address in Pakistan).</span></p>
+<p>In November 2021, the USPTO <a href="https://www.worldtrademarkreview.com/data/wtr-investigation-exclusives/wtr-investigation-exclusives/article/the-dangerous-legacy-of-axact-how-diploma-mill-in-pakistan-led-trademark-scam-epidemic" target="_blank" rel="noopener">accused Abtach</a> of perpetrating &#8220;an egregious scheme to deceive and defraud applicants for federal trademark registrations by improperly altering official USPTO correspondence, overcharging application filing fees, misappropriating the USPTO’s trademarks, and impersonating the USPTO.&#8221;</p>
+<p>Abtach offered trademark registration at suspiciously low prices compared to legitimate costs of over USD $1,500, and claimed they could register a trademark in 24 hours. Abtach reportedly <a href="https://www.worldtrademarkreview.com/data/wtr-investigation-exclusives/wtr-investigation-exclusives/article/abtach-rebrands-intersys-after-being-banned-uspto" target="_blank" rel="noopener">rebranded </a>to <strong>Intersys Limited</strong> after the USPTO banned Abtach from filing any more trademark applications.</p>
+<div id="attachment_71191" style="width: 646px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71191" decoding="async" loading="lazy" class=" wp-image-71191" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/intersysabtach.png" alt="" width="636" height="870" /><p id="caption-attachment-71191" class="wp-caption-text">In a note published to its LinkedIn profile, Intersys Ltd. asserted last year that certain scam firms in Karachi were impersonating the company.</p></div>
+<h2>FROM AXACT TO ABTACH</h2>
+<p>Many of Abtach&#8217;s employees are former associates of a similar company in Pakistan called <strong>Axact</strong> that was targeted by Pakistani authorities in a 2015 fraud investigation. Axact came under law enforcement scrutiny after <strong>The New York Times</strong> ran <a href="https://www.nytimes.com/2015/05/18/world/asia/fake-diplomas-real-cash-pakistani-company-axact-reaps-millions-columbiana-barkley.html" target="_blank" rel="noopener">a front-page story</a> about the company&#8217;s most lucrative scam business: Hundreds of sites peddling fake college degrees and diplomas.</p>
+<p><span style="font-weight: 400;">People who purchased fake certifications were subsequently <a href="https://www.nytimes.com/2016/04/11/world/asia/pakistan-axact-degree-scam.html" target="_blank" rel="noopener">blackmailed by Axact employees posing as government officials</a>, who would demand additional payments under threats of prosecution or imprisonment for having bought fraudulent “unauthorized” academic degrees. This practice created a continuous cycle of extortion, internally referred to as &#8220;upselling.&#8221; </span></p>
+<p>&#8220;Axact took money from at least 215,000 people in 197 countries — one-third of them from the United States,&#8221; The Times reported. &#8220;Sales agents wielded threats and false promises and impersonated government officials, earning the company at least $89 million in its final year of operation.&#8221;</p>
+<p>Dozens of top Axact employees were arrested, jailed, held for months, tried and sentenced to seven years for various fraud violations. But a 2019 research brief on Axact&#8217;s diploma mills found none of those convicted had started their prison sentence, and that several had fled Pakistan and never returned.</p>
+<p>&#8220;In October 2016, a Pakistan district judge acquitted 24 Axact officials at trial due to &#8216;not enough evidence&#8217; and then later admitted he had accepted a bribe (of $35,209) from Axact,&#8221; reads <a href="https://www.aacrao.org/docs/default-source/webinar-documents/94-4-academic-fraud-and-the-worlds-largest-diploma-mill.pdf?sfvrsn=4b276f1f_2#:~:text=Dozens%20of%20top%20Axact%20ex,was%20caught%20at%20the%20airport." target="_blank" rel="noopener">a history</a> (PDF) published by the American Association of Collegiate Registrars and Admissions Officers.</p>
+<p>In 2021, Pakistan&#8217;s <strong>Federal Investigation Agency</strong> (FIA) charged Bilwani and nearly four dozen others &#8212; many of them Abtach employees &#8212; with running an elaborate trademark scam. The authorities <a href="https://files.lbr.cloud/public/2021-02/report.pdf?nh3DUDQa7dd3jS63lsAN2dWDbHIQjplS=" target="_blank" rel="noopener">called it</a> &#8220;the biggest money laundering case in the history of Pakistan,&#8221; and named a number of businesses based in Texas that allegedly helped move the proceeds of cybercrime.</p>
+<div id="attachment_71216" style="width: 759px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71216" decoding="async" loading="lazy" class=" wp-image-71216" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/fia-report-2021.png" alt="" width="749" height="505" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/fia-report-2021.png 785w, https://krebsonsecurity.com/wp-content/uploads/2025/05/fia-report-2021-768x518.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/fia-report-2021-782x527.png 782w" sizes="(max-width: 749px) 100vw, 749px" /><p id="caption-attachment-71216" class="wp-caption-text">A page from the March 2021 FIA report alleging that Digitonics Labs and Abtach employees conspired to extort and defraud consumers.</p></div>
+<p>The FIA <a href="https://www.worldtrademarkreview.com/data/wtr-investigation-exclusives/wtr-investigation-exclusives/article/uspto-users-targeted-in-massive-fraud-and-money-laundering-case-in-pakistan" target="_blank" rel="noopener">said</a> the defendants operated a large number of websites offering low-cost trademark services to customers, before then “ignoring them after getting the funds and later demanding more funds from clients/victims in the name of up-sale (extortion).&#8221; The Pakistani law enforcement agency said that about 75 percent of customers received fake or fabricated trademarks as a result of the scams.</p>
+<p><span style="font-weight: 400;">The FIA <a href="https://drive.google.com/file/d/1dFChoGQHXw7yi-JdVuow3k1XBAuPwAlv/view?usp=drive_link" target="_blank" rel="noopener">found</a> Abtach operates in conjunction with a Karachi firm called <strong>Digitonics Labs</strong>, which earned <a href="https://www.worldtrademarkreview.com/data/wtr-investigation-exclusives/wtr-investigation-exclusives/article/bribery-impersonation-abuse-shocking-details-revealed-in-pakistan-fraud-case-targeted-uspto-users" target="_blank" rel="noopener">a monthly revenue of around $2.5 million</a> through the &#8220;extortion of international clients in the name of up-selling, the sale of fake/fabricated USPTO certificates, and the maintaining of phishing websites.&#8221;</span></p>
+<p>According the Pakistani authorities, the accused also ran countless scams involving ebook publication and logo creation, wherein customers are subjected to advance-fee fraud and extortion &#8212; with the scammers demanding more money for supposed &#8220;copyright release&#8221; and threatening to release the trademark.</p>
+<p><span style="font-weight: 400;">Also charged by the FIA was </span><b>Junaid Mansoor</b>, <span style="font-weight: 400;">the owner of Digitonics Labs in Karachi. Mansoor&#8217;s </span><b><span style="font-weight: 400;">U.K.-registered company </span></b><a href="https://find-and-update.company-information.service.gov.uk/officers/9Xl14hjK0LtYFKRI7kI_werr3As/appointments" target="_blank" rel="noopener"><span style="font-weight: 400;">Maple Solutions Direct Limited</span></a> <b><span style="font-weight: 400;">has run at least 700 ads for logo design websites since 2015, the Google Ads Transparency page <a href="https://adstransparency.google.com/advertiser/AR16545428366065401857?region=anywhere" target="_blank" rel="noopener">reports</a>. The company has approximately <a href="https://adstransparency.google.com/advertiser/AR16545428366065401857?region=US&amp;preset-date=Today" target="_blank" rel="noopener">88 ads running on Google</a> as of today. </span></b></p>
+<div id="attachment_71135" style="width: 702px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71135" decoding="async" loading="lazy" class=" wp-image-71135" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/junaidmansoor.png" alt="" width="692" height="290" /><p id="caption-attachment-71135" class="wp-caption-text">Junaid Mansoor. Source: youtube/@Olevels․com School.</p></div>
+<p><span style="font-weight: 400;">Mr. Mansoor is actively involved with and promoting a Quran study business called <strong>quranmasteronline[.]com</strong>, which was founded by Junaid&#8217;s brother <strong>Qasim Mansoor</strong> (Qasim is also named in the FIA criminal investigation). The Google ads promoting quranmasteronline[.]com were paid for by <a href="https://adstransparency.google.com/advertiser/AR14975696108041273345?region=US" target="_blank" rel="noopener">the same account</a> advertising a number of scam websites selling logo and web design services. </span></p>
+<p>Junaid Mansoor did not respond to requests for comment. An address in Teaneck, New Jersey where Mr. Mansoor previously lived <a href="https://www.mapquest.com/us/new-jersey/exporthub-378873083" target="_blank" rel="noopener">is listed as an official address of exporthub[.]com</a>, a Pakistan-based e-commerce website that appears remarkably similar to eWorldTrade (Exporthub says its offices are in Texas). Interestingly, a search in Google for this domain shows ExportHub currently features <a href="https://www.google.com/search?q=site%3Aexporthub.com+fentanyl" target="_blank" rel="noopener">multiple listings for fentanyl citrate</a> from suppliers in China and elsewhere.</p>
+<p>The CEO of Digitonics Labs is <strong>Muhammad Burhan Mirza</strong>, a former Axact official who was arrested by the FIA as part of its money laundering and trademark fraud investigation in 2021. In 2023, prosecutors in Pakistan charged Mirza, Mansoor and 14 other Digitonics employees with fraud, impersonating government officials, phishing, cheating and extortion. Mirza&#8217;s LinkedIn profile says he currently runs an educational technology/life coach enterprise called <strong>TheCoach360</strong>, which purports to help young kids &#8220;achieve financial independence.&#8221;</p>
+<p>Reached via LinkedIn, Mr. Mirza denied having anything to do with eWorldTrade or any of its sister companies in Texas.</p>
+<p>&#8220;Moreover, I have no knowledge as to the companies you have mentioned,&#8221; said Mr. Mirza, who did not respond to follow-up questions.</p>
+<p>The current disposition of the FIA&#8217;s fraud case against the defendants is unclear. The investigation was marred early on by allegations of corruption and bribery. In 2021, Pakistani authorities alleged Bilwani paid a six-figure bribe to FIA investigators. Meanwhile, attorneys for Mr. Bilwani <a href="https://drive.google.com/file/d/194s1jG24OE2KjHtOhfGu51i6NhCFGV2X/view?usp=drive_link" target="_blank" rel="noopener">have argued</a> that although their client did pay a bribe, the payment was solicited by government officials. Mr. Bilwani did not respond to requests for comment.</p>
+<h2>THE TEXAS NEXUS</h2>
+<p>KrebsOnSecurity has learned that the people and entities at the center of the FIA investigations have built a significant presence in the United States, with a strong concentration in Texas. The Texas businesses promote websites that sell logo and web design, ghostwriting, and academic cheating services. Many of these entities have recently been sued for fraud and breach of contract by angry former customers, who claimed the companies relentlessly upsold them while failing to produce the work as promised.</p>
+<p>For example, the FIA complaints named <strong>Retrocube LLC </strong>and <strong>360 Digital Marketing LLC</strong>, two entities that share a street address with eWorldTrade: 1910 Pacific Avenue, Suite 8025, Dallas, Texas. Also incorporated at that Pacific Avenue address is <strong>abtach[.]ae</strong>, a web design and marketing firm based in Dubai; and <strong>intersyslimited[.]com</strong>, the new name of Abtach after they were banned by the USPTO. Other businesses registered at this address market services for logo design, mobile app development, and ghostwriting.</p>
+<div id="attachment_71247" style="width: 727px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/05/annexure2.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71247" decoding="async" loading="lazy" class="wp-image-71247 size-full" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/annexure2.png" alt="" width="717" height="699" /></a><p id="caption-attachment-71247" class="wp-caption-text">A list published in 2021 by Pakistan&#8217;s FIA of different front companies allegedly involved in scamming people who are looking for help with trademarks, ghostwriting, logos and web design.</p></div>
+<p>360 Digital Marketing&#8217;s website 360digimarketing[.]com is owned by an Abtach front company called <strong>Abtech LTD</strong>. Meanwhile, <a href="https://find-and-update.company-information.service.gov.uk/company/10311269/officers" target="_blank" rel="noopener">business records show</a> <strong>360 Digi Marketing LTD</strong> is a U.K. company whose officers include former Abtach director Bilwani; <b>Muhammad Saad Iqbal</b>, formerly Abtach, now CEO of Intersys Ltd; <b>Niaz Ahmed</b>, a former Abtach associate; and<b> Muhammad Salman Yousuf</b>, formerly a vice president at Axact, Abtach, and Digitonics Labs.</p>
+<p>Google&#8217;s Ads Transparency Center finds 360 Digital Marketing LLC ran at least 500 ads promoting various websites selling ghostwriting services . Another entity tied to Junaid Mansoor &#8212; a company called <strong>Octa Group Technologies AU</strong> &#8212; has run <a href="https://adstransparency.google.com/advertiser/AR08603440443079786497?region=anywhere" target="_blank" rel="noopener">approximately 300 Google ads</a> for book publishing services, promoting confusingly named websites like <span style="font-weight: 400;">amazonlistinghub[.]com and barnesnoblepublishing[.]co.</span></p>
+<div id="attachment_71198" style="width: 759px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71198" decoding="async" loading="lazy" class=" wp-image-71198" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/360DigitalMarketingLLC-adstransparency.png" alt="" width="749" height="653" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/360DigitalMarketingLLC-adstransparency.png 1045w, https://krebsonsecurity.com/wp-content/uploads/2025/05/360DigitalMarketingLLC-adstransparency-768x670.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/360DigitalMarketingLLC-adstransparency-782x682.png 782w" sizes="(max-width: 749px) 100vw, 749px" /><p id="caption-attachment-71198" class="wp-caption-text">360 Digital Marketing LLC ran approximately 500 ads for scam ghostwriting sites.</p></div>
+<p><strong>Rameez Moiz </strong>is a Texas resident and former Abtach product manager who has represented 360 Digital Marketing LLC and RetroCube. Moiz told KrebsOnSecurity he stopped working for 360 Digital Marketing in the summer of 2023. Mr. Moiz did not respond to follow-up questions, but <a href="https://www.upwork.com/agencies/1494464284062437376/" target="_blank" rel="noopener">an Upwork profile for him</a> states that as of April 2025 he is employed by Dallas-based <strong>Vertical Minds LLC</strong>.</p>
+<p>In April 2025, California resident <strong>Melinda Will</strong> <a href="https://drive.google.com/file/d/1qRhvQ6mdyRrFpzWBOdschOo71xIP7ikT/view?usp=drive_link" target="_blank" rel="noopener">sued</a> the Texas firm <strong>Majestic Ghostwriting </strong>&#8212; which is doing business as <strong>ghostwritingsquad[.]com</strong> &#8212;  alleging they scammed her out of $100,000 after she hired them to help write her book. Google&#8217;s ad transparency page shows Moiz&#8217;s employer <a href="https://adstransparency.google.com/advertiser/AR06416697976495800321?region=US" target="_blank" rel="noopener">Vertical Minds LLC paid to run approximately 55 ads</a> for <strong>ghostwritingsquad[.]com </strong>and related sites.</p>
+<div id="attachment_71190" style="width: 760px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/05/verticalminds-google.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71190" decoding="async" loading="lazy" class="wp-image-71190" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/verticalminds-google.png" alt="" width="750" height="455" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/05/verticalminds-google.png 1437w, https://krebsonsecurity.com/wp-content/uploads/2025/05/verticalminds-google-768x466.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/05/verticalminds-google-782x475.png 782w" sizes="(max-width: 750px) 100vw, 750px" /></a><p id="caption-attachment-71190" class="wp-caption-text">Google&#8217;s ad transparency listing for ghostwriting ads paid for by Vertical Minds LLC.</p></div>
+<p> <a href="https://krebsonsecurity.com/2025/05/pakistani-firm-shipped-fentanyl-analogs-scams-to-us/#more-70782" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-71165" class="post-71165 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-doge category-latest-warnings category-comingstorm tag-carole-winqwist tag-department-of-government-efficiency tag-eric-fourrier tag-general-services-administration tag-gitguardian tag-github tag-grok tag-gsai tag-philippe-caturegli tag-reuters tag-seralys tag-spacex tag-tesla tag-the-washington-post tag-twitter-x tag-xai">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/05/xai-dev-leaks-api-key-for-private-spacex-tesla-llms/" title="Permalink to xAI Dev Leaks API Key for Private SpaceX, Tesla LLMs" rel="bookmark">xAI Dev Leaks API Key for Private SpaceX, Tesla LLMs</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 1, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/05/xai-dev-leaks-api-key-for-private-spacex-tesla-llms/#comments">34 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>An employee at Elon Musk&#8217;s artificial intelligence company <strong>xAI</strong> leaked a private key on <strong>GitHub</strong> that for the past two months could have allowed anyone to query private xAI large language models (LLMs) which appear to have been custom made for working with internal data from Musk&#8217;s companies, including <strong>SpaceX</strong>, <strong>Tesla</strong> and <strong>Twitter/X, </strong>KrebsOnSecurity has learned.</p>
+<div id="attachment_71170" style="width: 758px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71170" decoding="async" loading="lazy" class=" wp-image-71170" src="https://krebsonsecurity.com/wp-content/uploads/2025/05/x-ai.png" alt="" width="748" height="497" /><p id="caption-attachment-71170" class="wp-caption-text">Image: Shutterstock, @sdx15.</p></div>
+<p><strong>Philippe Caturegli</strong>, &#8220;chief hacking officer&#8221; at the security consultancy <strong>Seralys</strong>, was <a href="https://www.linkedin.com/posts/caturegli_yo-xai-your-devs-are-leaking-api-keys-on-activity-7321566948020953088-6KXj?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAliaMB3BQO-WOS-eUh-XU4HAd5h8pTzkI" target="_blank" rel="noopener">the first to publicize the leak</a> of credentials for an x.ai application programming interface (API) exposed in the GitHub code repository of a technical staff member at xAI.</p>
+<p>Caturegli&#8217;s post on LinkedIn caught the attention of researchers at <strong>GitGuardian</strong>, a company that specializes in detecting and remediating exposed secrets in public and proprietary environments. GitGuardian&#8217;s systems constantly scan GitHub and other code repositories for exposed API keys, and fire off automated alerts to affected users.</p>
+<p>GitGuardian&#8217;s <strong>Eric Fourrier</strong> told KrebsOnSecurity the exposed API key had access to several unreleased models of <strong>Grok</strong>, the AI chatbot developed by xAI. In total, GitGuardian found the key had access to at least 60 fine-tuned and private LLMs.</p>
+<p>&#8220;The credentials can be used to access the X.ai API with the identity of the user,&#8221; GitGuardian wrote in an email explaining their findings to xAI. &#8220;The associated account not only has access to public Grok models (grok-2-1212, etc) but also to what appears to be unreleased (grok-2.5V), development (research-grok-2p5v-1018), and private models (tweet-rejector, grok-spacex-2024-11-04).&#8221;</p>
+<p>Fourrier found GitGuardian had alerted the xAI employee about the exposed API key nearly two months ago &#8212; on March 2. But as of April 30, when GitGuardian directly alerted xAI&#8217;s security team to the exposure, the key was still valid and usable. xAI told GitGuardian to report the matter through its bug bounty program at <strong>HackerOne</strong>, but just a few hours later the repository containing the API key was removed from GitHub.</p>
+<p>&#8220;It looks like some of these internal LLMs were fine-tuned on SpaceX data, and some were fine-tuned with Tesla data,&#8221; Fourrier said. &#8220;I definitely don&#8217;t think a Grok model that&#8217;s fine-tuned on SpaceX data is intended to be exposed publicly.&#8221;</p>
+<p>xAI did not respond to a request for comment. Nor did the 28-year-old xAI technical staff member whose key was exposed. <a href="https://krebsonsecurity.com/2025/05/xai-dev-leaks-api-key-for-private-spacex-tesla-llms/#more-71165" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-71147" class="post-71147 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-neer-do-well-news category-ransomware category-sim-swapping tag-0ktapus tag-ahmed-elbadawy tag-caesars tag-doordash tag-evans-osiebo tag-group-ib tag-joel-evans tag-lastpass tag-mailchimp tag-mgm tag-noah-urban tag-okta tag-ransomware tag-scattered-spider tag-sim-swapping tag-twilio tag-tyler-robert-buchanan tag-tylerb">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/04/alleged-scattered-spider-member-extradited-to-u-s/" title="Permalink to Alleged &#8216;Scattered Spider&#8217; Member Extradited to U.S." rel="bookmark">Alleged &#8216;Scattered Spider&#8217; Member Extradited to U.S.</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">April 30, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/04/alleged-scattered-spider-member-extradited-to-u-s/#comments">19 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>A 23-year-old Scottish man thought to be a member of the prolific <strong>Scattered Spider</strong> cybercrime group was extradited last week from Spain to the United States, where he is facing charges of wire fraud, conspiracy and identity theft. U.S. prosecutors allege <strong>Tyler Robert Buchanan</strong> and co-conspirators hacked into dozens of companies in the United States and abroad, and that he personally controlled more than $26 million stolen from victims.</p>
+<p>Scattered Spider is a loosely affiliated criminal hacking group whose members have broken into and stolen data from some of the world&#8217;s largest technology companies. Buchanan was arrested in Spain last year on a warrant from the FBI, which wanted him in connection with a series of SMS-based phishing attacks in the summer of 2022 that led to intrusions at Twilio, LastPass, DoorDash, Mailchimp, and many other tech firms.</p>
+<div id="attachment_67783" style="width: 758px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-67783" decoding="async" loading="lazy" class=" wp-image-67783" src="https://krebsonsecurity.com/wp-content/uploads/2024/06/tylerb.png" alt="" width="748" height="308" /><p id="caption-attachment-67783" class="wp-caption-text">Tyler Buchanan, being escorted by Spanish police at the airport in Palma de Mallorca in June 2024.</p></div>
+<p>As <a href="https://krebsonsecurity.com/2024/06/alleged-boss-of-scattered-spider-hacking-group-arrested/" target="_blank" rel="noopener">first reported</a> by KrebsOnSecurity, Buchanan (a.k.a. &#8220;tylerb&#8221;) fled the United Kingdom in February 2023, after a rival cybercrime gang hired thugs to invade his home, assault his mother, and threaten to burn him with a blowtorch unless he gave up the keys to his cryptocurrency wallet. Buchanan was arrested in June 2024 at the airport in Palma de Mallorca while trying to board a flight to Italy. His extradition to the United States was <a href="https://www.bloomberg.com/news/articles/2025-04-24/scattered-spider-hacking-suspect-extradited-to-us-from-spain" target="_blank" rel="noopener">first reported</a> last week by <strong>Bloomberg</strong>.</p>
+<p>Members of Scattered Spider have been <a href="https://cyberscoop.com/youth-hacking-ring-at-the-center-of-cybercrime-spree/" target="_blank" rel="noopener">tied</a> to the 2023 ransomware attacks against <strong>MGM</strong> and <strong>Caesars</strong> casinos in Las Vegas, but it remains unclear whether Buchanan was implicated in that incident. The Justice Department&#8217;s complaint against Buchanan makes no mention of the 2023 ransomware attack.</p>
+<p>Rather, the investigation into Buchanan appears to center on the SMS phishing campaigns from 2022, and on <a href="https://krebsonsecurity.com/category/sim-swapping/" target="_blank" rel="noopener">SIM-swapping attacks</a> that siphoned funds from individual cryptocurrency investors. In a SIM-swapping attack, crooks transfer the target’s phone number to a device they control and intercept any text messages or phone calls to the victim&#8217;s device — including one-time passcodes for authentication and password reset links sent via SMS.</p>
+<p>In August 2022, KrebsOnSecurity <a href="https://krebsonsecurity.com/2022/08/how-1-time-passcodes-became-a-corporate-liability/" target="_blank" rel="noopener">reviewed data harvested in a months-long cybercrime campaign by Scattered Spider</a> involving countless SMS-based phishing attacks against employees at major corporations. The security firm <strong>Group-IB</strong> called them by a different name — <strong>0ktapus</strong>, because the group typically spoofed the identity provider <strong>Okta</strong> in their phishing messages to employees at targeted firms.</p>
+<div id="attachment_61078" style="width: 654px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-61078" decoding="async" loading="lazy" class="wp-image-61078 size-full" src="https://krebsonsecurity.com/wp-content/uploads/2022/08/twiliophish.png" alt="" width="644" height="471" /><p id="caption-attachment-61078" class="wp-caption-text">A Scattered Spider/0Ktapus SMS phishing lure sent to Twilio employees in 2022.</p></div>
+<p>The <a href="https://krebsonsecurity.com/wp-content/uploads/2025/04/tylerb-complaint.pdf" target="_blank" rel="noopener">complaint against Buchanan</a> (PDF) says the FBI tied him to the 2022 SMS phishing attacks after discovering the same username and email address was used to register numerous Okta-themed phishing domains seen in the campaign. The domain registrar <strong>NameCheap</strong> found that less than a month before the phishing spree, the account that registered those domains logged in from an Internet address in the U.K. FBI investigators said the Scottish police told them the address was leased to Buchanan from January 26, 2022 to November 7, 2022.</p>
+<p>Authorities seized at least 20 digital devices when they raided Buchanan&#8217;s residence, and on one of those devices they found usernames and passwords for employees of three different companies targeted in the phishing campaign.</p>
+<p>&#8220;The FBI’s investigation to date has gathered evidence showing that Buchanan and his co-conspirators targeted at least 45 companies in the United States and abroad, including Canada, India, and the United Kingdom,&#8221; the FBI complaint reads. &#8220;One of Buchanan&#8217;s devices contained a screenshot of Telegram messages between an account known to be used by Buchanan and other unidentified co-conspirators discussing dividing up the proceeds of SIM swapping.&#8221; <a href="https://krebsonsecurity.com/2025/04/alleged-scattered-spider-member-extradited-to-u-s/#more-71147" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-71075" class="post-71075 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-doge category-comingstorm tag-async-ip-rotator tag-browserless tag-daniel-j-berulis tag-department-of-government-efficiency tag-department-of-health-and-human-services tag-doge tag-ge0rg3 tag-github tag-integuru tag-labor-department tag-marko-elez tag-national-labor-relations-board tag-politico tag-the-wall-street-journal">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/04/doge-workers-code-supports-nlrb-whistleblower/" title="Permalink to DOGE Worker&#8217;s Code Supports NLRB Whistleblower" rel="bookmark">DOGE Worker&#8217;s Code Supports NLRB Whistleblower</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">April 23, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/04/doge-workers-code-supports-nlrb-whistleblower/#comments">59 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>A whistleblower at the <strong>National Labor Relations Board</strong> (NLRB) alleged last week that denizens of Elon Musk&#8217;s <strong>Department of Government Efficiency</strong> (DOGE) siphoned gigabytes of data from the agency&#8217;s sensitive case files in early March. The whistleblower said accounts created for DOGE at the NLRB downloaded three code repositories from <strong>GitHub</strong>. Further investigation into one of those code bundles shows it is remarkably similar to a program published in January 2025 by <strong>Marko Elez</strong>, a 25-year-old DOGE employee who has worked at a number of Musk&#8217;s companies.</p>
+<div id="attachment_71090" style="width: 758px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/04/db-powershellcmds.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71090" decoding="async" loading="lazy" class="wp-image-71090" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/db-powershellcmds.png" alt="" width="748" height="323" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/db-powershellcmds.png 1287w, https://krebsonsecurity.com/wp-content/uploads/2025/04/db-powershellcmds-768x331.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/db-powershellcmds-782x337.png 782w" sizes="(max-width: 748px) 100vw, 748px" /></a><p id="caption-attachment-71090" class="wp-caption-text">A screenshot shared by NLRB whistleblower Daniel Berulis shows three downloads from GitHub.</p></div>
+<p>According to <a href="https://krebsonsecurity.com/2025/04/whistleblower-doge-siphoned-nlrb-case-data/" target="_blank" rel="noopener">a whistleblower complaint</a> filed last week by <strong>Daniel J. Berulis</strong>, a 38-year-old security architect at the NLRB, officials from DOGE met with NLRB leaders on March 3 and demanded the creation of several all-powerful “tenant admin” accounts that were to be exempted from network logging activity that would otherwise keep a detailed record of all actions taken by those accounts.</p>
+<p>Berulis said the new DOGE accounts had unrestricted permission to read, copy, and alter information contained in NLRB databases. The new accounts also could restrict log visibility, delay retention, route logs elsewhere, or even remove them entirely — top-tier user privileges that neither Berulis nor his boss possessed.</p>
+<p>Berulis said he discovered one of the DOGE accounts had downloaded three external code libraries from <strong>GitHub</strong> that neither NLRB nor its contractors ever used. A “readme” file in one of the code bundles explained it was created to rotate connections through a large pool of cloud Internet addresses that serve “<em>as a proxy to generate pseudo-infinite IPs for web scraping and brute forcing</em>.” Brute force attacks involve automated login attempts that try many credential combinations in rapid sequence.</p>
+<p>A search on that description in Google brings up a code repository at GitHub for a user with the account name &#8220;<strong>Ge0rg3</strong>&#8221; who published a program roughly four years ago called &#8220;<a href="https://github.com/Ge0rg3/requests-ip-rotator" target="_blank" rel="noopener">requests-ip-rotator</a>,&#8221; described as a library that will allow the user &#8220;to bypass IP-based rate-limits for sites and services.&#8221;</p>
+<div id="attachment_71091" style="width: 759px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71091" decoding="async" loading="lazy" class=" wp-image-71091" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/ge0rge-gh.png" alt="" width="749" height="543" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/ge0rge-gh.png 1171w, https://krebsonsecurity.com/wp-content/uploads/2025/04/ge0rge-gh-768x557.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/ge0rge-gh-782x568.png 782w" sizes="(max-width: 749px) 100vw, 749px" /><p id="caption-attachment-71091" class="wp-caption-text">The README file from the GitHub user Ge0rg3&#8217;s page for requests-ip-rotator includes the exact wording of a program the whistleblower said was downloaded by one of the DOGE users. Marko Elez created an offshoot of this program in January 2025.</p></div>
+<p>&#8220;A Python library to utilize AWS API Gateway&#8217;s large IP pool as a proxy to generate pseudo-infinite IPs for web scraping and brute forcing,&#8221; the description reads.</p>
+<p>Ge0rg3&#8217;s code is &#8220;open source,&#8221; in that anyone can copy it and reuse it non-commercially. As it happens, there is a newer version of this project that was derived or &#8220;forked&#8221; from Ge0rg3&#8217;s code &#8212; called &#8220;<a href="https://github.com/markoelez/async-ip-rotator/blob/master/README.md" target="_blank" rel="noopener">async-ip-rotator</a>&#8221; &#8212; and it was committed to GitHub in January 2025 by DOGE captain <a href="https://github.com/markoelez" target="_blank" rel="noopener">Marko Elez</a>.</p>
+<div id="attachment_71085" style="width: 760px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/04/melez-gh.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71085" decoding="async" loading="lazy" class="wp-image-71085" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/melez-gh.png" alt="" width="750" height="492" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/melez-gh.png 1150w, https://krebsonsecurity.com/wp-content/uploads/2025/04/melez-gh-768x504.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/melez-gh-782x513.png 782w" sizes="(max-width: 750px) 100vw, 750px" /></a><p id="caption-attachment-71085" class="wp-caption-text">The whistleblower stated that one of the GitHub files downloaded by the DOGE employees who transferred sensitive files from an NLRB case database was an archive whose README file read: &#8220;Python library to utilize AWS API Gateway&#8217;s large IP pool as a proxy to generate pseudo-infinite IPs for web scraping and brute forcing.&#8221; Elez&#8217;s code pictured here was forked in January 2025 from a code library that shares the same description.</p></div>
+<p>A key DOGE staff member who gained access to the Treasury Department&#8217;s central payments system, Elez has worked for a number of Musk companies, including <strong>X</strong>, <strong>SpaceX</strong>, and <strong>xAI</strong>. Elez was among the first DOGE employees to face public scrutiny, after <strong>The Wall Street Journal</strong> <a href="https://www.wsj.com/tech/doge-staffer-resigns-over-racist-posts-d9f11a93" target="_blank" rel="noopener">linked him to social media posts</a> that advocated racism and eugenics.</p>
+<p>Elez resigned after that brief scandal, but was rehired after President Donald Trump and Vice President JD Vance expressed support for him. <strong>Politico</strong> <a href="https://www.politico.com/news/2025/03/29/doge-marco-elez-software-engineer-us-payroll-00259303" target="_blank" rel="noopener">reports</a> Elez is now a <strong>Labor Department</strong> aide detailed to multiple agencies, including the <strong>Department of Health and Human Services</strong>.</p>
+<p>&#8220;During Elez’s initial stint at Treasury, he violated the agency’s information security policies by sending a spreadsheet containing names and payments information to officials at the General Services Administration,&#8221; Politico wrote, citing court filings.</p>
+<p>KrebsOnSecurity sought comment from both the NLRB and DOGE, and will update this story if either responds. <a href="https://krebsonsecurity.com/2025/04/doge-workers-code-supports-nlrb-whistleblower/#more-71075" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-71035" class="post-71035 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-doge category-latest-warnings category-comingstorm tag-amazon tag-andrew-p-bakaj tag-cnn tag-cybersecurity-and-infrastructure-security-agency tag-daniel-j-berulis tag-github tag-lasharn-hamilton tag-microsoft-azure tag-npr tag-nxgen tag-president-trump tag-spacex tag-tim-bearese tag-us-cert">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/04/whistleblower-doge-siphoned-nlrb-case-data/" title="Permalink to Whistleblower: DOGE Siphoned NLRB Case Data" rel="bookmark">Whistleblower: DOGE Siphoned NLRB Case Data</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">April 21, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/04/whistleblower-doge-siphoned-nlrb-case-data/#comments">88 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>A security architect with the <strong>National Labor Relations Board</strong> (NLRB) alleges that employees from <strong>Elon Musk</strong>&#8216;s <strong>Department of Government Efficiency</strong> (DOGE) transferred gigabytes of sensitive data from agency case files in early March, using short-lived accounts configured to leave few traces of network activity. The NLRB whistleblower said the unusual large data outflows coincided with multiple blocked login attempts from an Internet address in Russia that tried to use valid credentials for a newly-created DOGE user account.</p>
+<div id="attachment_71048" style="width: 759px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71048" decoding="async" loading="lazy" class=" wp-image-71048" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/beruliscomplaint.png" alt="" width="749" height="823" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/beruliscomplaint.png 786w, https://krebsonsecurity.com/wp-content/uploads/2025/04/beruliscomplaint-768x844.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/beruliscomplaint-782x860.png 782w" sizes="(max-width: 749px) 100vw, 749px" /><p id="caption-attachment-71048" class="wp-caption-text">The cover letter from Berulis&#8217;s whistleblower statement, sent to the leaders of the Senate Select Committee on Intelligence.</p></div>
+<p>The allegations came in an April 14 letter to the Senate Select Committee on Intelligence, signed by <strong>Daniel J. Berulis</strong>, a 38-year-old security architect at the NLRB.</p>
+<p><strong>NPR</strong>, which was the <a href="https://www.npr.org/2025/04/15/nx-s1-5355896/doge-nlrb-elon-musk-spacex-security" target="_blank" rel="noopener">first to report</a> on Berulis&#8217;s whistleblower complaint, says NLRB is a small, independent federal agency that investigates and adjudicates complaints about unfair labor practices, and stores &#8220;reams of potentially sensitive data, from confidential information about employees who want to form unions to proprietary business information.&#8221;</p>
+<p>The complaint documents a one-month period beginning March 3, during which DOGE officials reportedly demanded the creation of all-powerful &#8220;tenant admin&#8221; accounts in NLRB systems that were to be exempted from network logging activity that would otherwise keep a detailed record of all actions taken by those accounts.</p>
+<p>Berulis said the new DOGE accounts had unrestricted permission to read, copy, and alter information contained in NLRB databases. The new accounts also could restrict log visibility, delay retention, route logs elsewhere, or even remove them entirely &#8212; top-tier user privileges that neither Berulis nor his boss possessed.</p>
+<p>Berulis writes that on March 3, a black SUV accompanied by a police escort arrived at his building &#8212; the NLRB headquarters in Southeast Washington, D.C. The DOGE staffers did not speak with Berulis or anyone else in NLRB&#8217;s IT staff, but instead met with the agency leadership.</p>
+<p>&#8220;Our acting chief information officer told us not to adhere to standard operating procedure with the DOGE account creation, and there was to be no logs or records made of the accounts created for DOGE employees, who required the highest level of access,&#8221; Berulis wrote of their instructions after that meeting.</p>
+<p>&#8220;We have built in roles that auditors can use and have used extensively in the past but would not give the ability to make changes or access subsystems without approval,&#8221; he continued. &#8220;The suggestion that they use these accounts was not open to discussion.&#8221;</p>
+<p>Berulis found that on March 3 one of the DOGE accounts created an opaque, virtual environment known as a &#8220;container,&#8221; which can be used to build and run programs or scripts without revealing its activities to the rest of the world. Berulis said the container caught his attention because he polled his colleagues and found none of them had ever used containers within the NLRB network.</p>
+<p>Berulis said he also noticed that early the next morning &#8212; between approximately 3 a.m. and 4 a.m. EST on Tuesday, March 4  &#8212; there was a large increase in outgoing traffic from the agency. He said it took several days of investigating with his colleagues to determine that one of the new accounts had transferred approximately 10 gigabytes worth of data from the NLRB&#8217;s <strong>NxGen</strong> case management system.</p>
+<p>Berulis said neither he nor his co-workers had the necessary network access rights to review which files were touched or transferred &#8212; or even where they went. But his complaint notes the NxGen database contains sensitive information on unions, ongoing legal cases, and corporate secrets.</p>
+<p>&#8220;I also don’t know if the data was only 10gb in total or whether or not they were consolidated and compressed prior,&#8221; Berulis told the senators. &#8220;This opens up the possibility that even more data was exfiltrated. Regardless, that kind of spike is extremely unusual because data almost never directly leaves NLRB’s databases.&#8221;</p>
+<p>Berulis said he and his colleagues grew even more alarmed when they noticed nearly two dozen login attempts from a Russian Internet address (83.149.30,186) that presented valid login credentials for a DOGE employee account &#8212; one that had been created just minutes earlier. Berulis said those attempts were all blocked thanks to rules in place that prohibit logins from non-U.S. locations.</p>
+<p>&#8220;Whoever was attempting to log in was using one of the newly created accounts that were used in the other DOGE related activities and it appeared they had the correct username and password due to the authentication flow only stopping them due to our no-out-of-country logins policy activating,&#8221; Berulis wrote. &#8220;There were more than 20 such attempts, and what is particularly concerning is that many of these login attempts occurred within 15 minutes of the accounts being created by DOGE engineers.&#8221;</p>
+<p>According to Berulis, the naming structure of one Microsoft user account connected to the suspicious activity suggested it had been created and later deleted for DOGE use in the NLRB&#8217;s cloud systems: &#8220;<strong>DogeSA_2d5c3e0446f9@nlrb.microsoft.com</strong>.&#8221; He also found other new Microsoft cloud administrator accounts with nonstandard usernames, including &#8220;<strong>Whitesox, Chicago M.</strong>&#8221; and &#8220;<strong>Dancehall, Jamaica R</strong>.&#8221;</p>
+<div id="attachment_71042" style="width: 759px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/04/whitesoxchicago.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71042" decoding="async" loading="lazy" class="wp-image-71042" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/whitesoxchicago.png" alt="" width="749" height="556" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/whitesoxchicago.png 1072w, https://krebsonsecurity.com/wp-content/uploads/2025/04/whitesoxchicago-768x570.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/whitesoxchicago-782x581.png 782w" sizes="(max-width: 749px) 100vw, 749px" /></a><p id="caption-attachment-71042" class="wp-caption-text">A screenshot shared by Berulis showing the suspicious user accounts.</p></div>
+<p>On March 5, Berulis documented that a large section of logs for recently created network resources were missing, and a network watcher in <strong>Microsoft Azure</strong> was set to the &#8220;off&#8221; state, meaning it was no longer collecting and recording data like it should have.</p>
+<p>Berulis said he discovered someone had downloaded three external code libraries from <strong>GitHub</strong> that neither NLRB nor its contractors ever use. A &#8220;readme&#8221; file in one of the code bundles explained it was created to rotate connections through a large pool of cloud Internet addresses that serve &#8220;as a proxy to generate pseudo-infinite IPs for web scraping and brute forcing.&#8221; Brute force attacks involve automated login attempts that try many credential combinations in rapid sequence.</p>
+<p>The complaint alleges that by March 17 it became clear the NLRB no longer had the resources or network access needed to fully investigate the odd activity from the DOGE accounts, and that on March 24, the agency&#8217;s associate chief information officer had agreed the matter should be reported to <strong>US-CERT</strong>. Operated by the Department of Homeland Security&#8217;s <strong>Cybersecurity and Infrastructure Security Agency</strong> (CISA), US-CERT provides on-site cyber incident response capabilities to federal and state agencies.</p>
+<p>But Berulis said that between April 3 and 4, he and the associate CIO were informed that &#8220;instructions had come down to drop the US-CERT reporting and investigation and we were directed not to move forward or create an official report.&#8221; Berulis said it was at this point he decided to go public with his findings. <a href="https://krebsonsecurity.com/2025/04/whistleblower-doge-siphoned-nlrb-case-data/#more-71035" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+		<article id="post-71010" class="post-71010 post type-post status-publish format-standard has-post-thumbnail hentry category-sunshine category-latest-warnings category-comingstorm tag-common-vulnerabilities-and-exposures tag-corellium tag-cve tag-cve-numbering-authorities tag-matt-tait tag-mitre">
+				<header class="entry-header">
+						<h2 class="entry-title">
+				<a href="https://krebsonsecurity.com/2025/04/funding-expires-for-key-cyber-vulnerability-database/" title="Permalink to Funding Expires for Key Cyber Vulnerability Database" rel="bookmark">Funding Expires for Key Cyber Vulnerability Database</a>
+			</h2>
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">April 15, 2025</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2025/04/funding-expires-for-key-cyber-vulnerability-database/#comments">71 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+							<div class="entry-content">
+												<p>A critical resource that cybersecurity professionals worldwide rely on to identify, mitigate and fix security vulnerabilities in software and hardware is in danger of breaking down. The federally funded, non-profit research and development organization <strong>MITRE</strong> warned today that its contract to maintain the <strong>Common Vulnerabilities and Exposures</strong> (CVE) program &#8212; which is traditionally funded each year by the Department of Homeland Security &#8212; expires on April 16.</p>
+<div id="attachment_71016" style="width: 752px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-71016" decoding="async" loading="lazy" class=" wp-image-71016" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/mitreletter.png" alt="" width="742" height="942" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/mitreletter.png 788w, https://krebsonsecurity.com/wp-content/uploads/2025/04/mitreletter-768x975.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/mitreletter-782x992.png 782w" sizes="(max-width: 742px) 100vw, 742px" /><p id="caption-attachment-71016" class="wp-caption-text">A letter from MITRE vice president Yosry Barsoum, warning that the funding for the CVE program will expire on April 16, 2025.</p></div>
+<p>Tens of thousands of security flaws in software are found and reported every year, and these vulnerabilities are eventually assigned their own unique CVE tracking number (e.g. <a href="https://www.cve.org/CVERecord?id=CVE-2024-43573" target="_blank" rel="noopener">CVE-2024-43573</a>, which is a <strong>Microsoft Windows</strong> bug that Redmond patched last year).</p>
+<p>There are hundreds of organizations &#8212; known as <strong>CVE Numbering Authorities</strong> (CNAs) &#8212; that are authorized by MITRE to bestow these CVE numbers on newly reported flaws. Many of these CNAs are country and government-specific, or tied to individual software vendors or vulnerability disclosure platforms (a.k.a. bug bounty programs).</p>
+<p>Put simply, MITRE is a critical, widely-used resource for centralizing and standardizing information on software vulnerabilities. That means the pipeline of information it supplies is plugged into an array of cybersecurity tools and services that help organizations identify and patch security holes &#8212; ideally before malware or malcontents can wriggle through them.</p>
+<p>&#8220;What the CVE lists really provide is a standardized way to describe the severity of that defect, and a centralized repository listing which versions of which products are defective and need to be updated,&#8221; said <a href="https://www.lawfaremedia.org/contributors/mtait" target="_blank" rel="noopener">Matt Tait</a>, chief operating officer of <strong>Corellium</strong>, a cybersecurity firm that sells phone-virtualization software for finding security flaws.</p>
+<p>In a letter sent today to the CVE board, MITRE Vice President <strong>Yosry Barsoum </strong>warned that on April 16, 2025, &#8220;the current contracting pathway for MITRE to develop, operate and modernize CVE and several other related programs will expire.&#8221;</p>
+<p>&#8220;If a break in service were to occur, we anticipate multiple impacts to CVE, including deterioration of national vulnerability databases and advisories, tool vendors, incident response operations, and all manner of critical infrastructure,&#8221; Barsoum wrote.</p>
+<p>MITRE told KrebsOnSecurity the CVE website listing vulnerabilities will remain up after the funding expires, but that new CVEs won&#8217;t be added after April 16.</p>
+<div id="attachment_71017" style="width: 760px" class="wp-caption aligncenter"><a href="https://krebsonsecurity.com/wp-content/uploads/2025/04/CVE-Lifecycle.png" target="_blank" rel="noopener"><img aria-describedby="caption-attachment-71017" decoding="async" loading="lazy" class="wp-image-71017" src="https://krebsonsecurity.com/wp-content/uploads/2025/04/CVE-Lifecycle.png" alt="" width="750" height="335" srcset="https://krebsonsecurity.com/wp-content/uploads/2025/04/CVE-Lifecycle.png 1926w, https://krebsonsecurity.com/wp-content/uploads/2025/04/CVE-Lifecycle-768x343.png 768w, https://krebsonsecurity.com/wp-content/uploads/2025/04/CVE-Lifecycle-1536x686.png 1536w, https://krebsonsecurity.com/wp-content/uploads/2025/04/CVE-Lifecycle-782x349.png 782w" sizes="(max-width: 750px) 100vw, 750px" /></a><p id="caption-attachment-71017" class="wp-caption-text">A representation of how a vulnerability becomes a CVE, and how that information is consumed. Image: James Berthoty, Latio Tech, via LinkedIn.</p></div>
+<p>DHS officials did not immediately respond to a request for comment. The program is funded through DHS&#8217;s <strong>Cybersecurity &amp; Infrastructure Security Agency</strong> (CISA), which is currently facing <a href="https://krebsonsecurity.com/2025/04/trump-revenge-tour-targets-cyber-leaders-elections/" target="_blank" rel="noopener">deep budget and staffing cuts by the Trump administration</a>. The <a href="https://www.usaspending.gov/award/CONT_AWD_70RCSJ24FR0000019_7001_70RSAT20D00000001_7001" target="_blank" rel="noopener">CVE contract</a> available at USAspending.gov says the project was awarded approximately $40 million last year.<br />
+ <a href="https://krebsonsecurity.com/2025/04/funding-expires-for-key-cyber-vulnerability-database/#more-71010" class="more-link">Continue reading <span class="meta-nav">&rarr;</span></a></p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+		
+					
+	</footer>
+
+	</article><!-- #post -->
+				
+			
+								<div class="themonic-pagination"><div class='pagination'><ul><li class='current'><span class='currenttext'>1</span></li><li><a href='https://krebsonsecurity.com/page/2/' class='inactive'>2</a></li><li><a href='https://krebsonsecurity.com/page/3/' class='inactive'>3</a></li><li><a href='https://krebsonsecurity.com/page/4/' class='inactive'>4</a></li><li><a href='https://krebsonsecurity.com/page/2/' class='inactive'>Next &rsaquo;</a></li><a class='inactive' href='https://krebsonsecurity.com/page/244/'>Last &raquo;</a></ul></div></div>
+					<div style="display: block; clear: both;"></div>
+			
+		
+
+	
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+
+        <div id="sidebar_ad" class="widget themonic-ad5"><div class="a-statement">Advertisement</div><a href="https://ninjio.com/lp46d-krebs/">
+<img src="/b-ninjio/12.png">
+</a></div>
+
+                        <br><div class="widget themonic-ad1"><div class="a-statement">Advertisement</div></div><br>
+
+			<aside id="custom_html-2" class="widget_text widget widget_custom_html"><p class="widget-title">Mailing List</p><div class="textwidget custom-html-widget"><a href="/subscribe/">Subscribe here</a></div></aside><aside id="search-2" class="widget widget_search"><p class="widget-title">Search KrebsOnSecurity</p><form role="search" method="get" id="searchform" class="searchform" action="https://krebsonsecurity.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></aside>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<p class="widget-title">Recent Posts</p>
+		<ul>
+											<li>
+					<a href="https://krebsonsecurity.com/2025/05/oops-danabot-malware-devs-infected-their-own-pcs/">Oops: DanaBot Malware Devs Infected Their Own PCs</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2025/05/krebsonsecurity-hit-with-near-record-6-3-tbps-ddos/">KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2025/05/breachforums-boss-to-pay-700k-in-healthcare-breach/">Breachforums Boss to Pay $700k in Healthcare Breach</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2025/05/patch-tuesday-may-2025-edition/">Patch Tuesday, May 2025 Edition</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2025/05/pakistani-firm-shipped-fentanyl-analogs-scams-to-us/">Pakistani Firm Shipped Fentanyl Analogs, Scams to US</a>
+									</li>
+					</ul>
+
+		</aside><aside id="text-2" class="widget widget_text">			<div class="textwidget"><a name="subscribe2"></a></div>
+		</aside><aside id="categories-2" class="widget widget_categories"><p class="widget-title">Story Categories</p>
+			<ul>
+					<li class="cat-item cat-item-5"><a href="https://krebsonsecurity.com/category/sunshine/">A Little Sunshine</a>
+</li>
+	<li class="cat-item cat-item-2240"><a href="https://krebsonsecurity.com/category/all-about-skimmers/">All About Skimmers</a>
+</li>
+	<li class="cat-item cat-item-9085"><a href="https://krebsonsecurity.com/category/ashley-madison-breach/">Ashley Madison breach</a>
+</li>
+	<li class="cat-item cat-item-3191"><a href="https://krebsonsecurity.com/category/breadcrumbs/">Breadcrumbs</a>
+</li>
+	<li class="cat-item cat-item-3771"><a href="https://krebsonsecurity.com/category/data-breaches/">Data Breaches</a>
+</li>
+	<li class="cat-item cat-item-4624"><a href="https://krebsonsecurity.com/category/ddos-for-hire/">DDoS-for-Hire</a>
+</li>
+	<li class="cat-item cat-item-11540"><a href="https://krebsonsecurity.com/category/doge/">DOGE</a>
+</li>
+	<li class="cat-item cat-item-9173"><a href="https://krebsonsecurity.com/category/employment-fraud/">Employment Fraud</a>
+</li>
+	<li class="cat-item cat-item-2151"><a href="https://krebsonsecurity.com/category/how-to-break-into-security/">How to Break Into Security</a>
+</li>
+	<li class="cat-item cat-item-10357"><a href="https://krebsonsecurity.com/category/internet-of-things-iot/">Internet of Things (IoT)</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="https://krebsonsecurity.com/category/latest-warnings/">Latest Warnings</a>
+</li>
+	<li class="cat-item cat-item-4071"><a href="https://krebsonsecurity.com/category/neer-do-well-news/">Ne&#039;er-Do-Well News</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://krebsonsecurity.com/category/other/">Other</a>
+</li>
+	<li class="cat-item cat-item-1306"><a href="https://krebsonsecurity.com/category/pharma-wars/">Pharma Wars</a>
+</li>
+	<li class="cat-item cat-item-8240"><a href="https://krebsonsecurity.com/category/ransomware/">Ransomware</a>
+</li>
+	<li class="cat-item cat-item-9635"><a href="https://krebsonsecurity.com/category/russias-war-on-ukraine/">Russia&#039;s War on Ukraine</a>
+</li>
+	<li class="cat-item cat-item-599"><a href="https://krebsonsecurity.com/category/security-tools/">Security Tools</a>
+</li>
+	<li class="cat-item cat-item-8298"><a href="https://krebsonsecurity.com/category/sim-swapping/">SIM Swapping</a>
+</li>
+	<li class="cat-item cat-item-4079"><a href="https://krebsonsecurity.com/category/spam-nation/">Spam Nation</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://krebsonsecurity.com/category/smallbizvictims/">Target: Small Businesses</a>
+</li>
+	<li class="cat-item cat-item-5167"><a href="https://krebsonsecurity.com/category/tax-refund-fraud/">Tax Refund Fraud</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://krebsonsecurity.com/category/comingstorm/">The Coming Storm</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://krebsonsecurity.com/category/patches/">Time to Patch</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://krebsonsecurity.com/category/web-fraud-2-0/">Web Fraud 2.0</a>
+</li>
+			</ul>
+
+			</aside><aside id="media_image-2" class="widget widget_media_image"><p class="widget-title">Why So Many Top Hackers Hail from Russia</p><a href="https://krebsonsecurity.com/2017/06/why-so-many-top-hackers-hail-from-russia/"><img width="580" height="389" src="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png" class="image wp-image-39684  attachment-medium size-medium" alt="" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png 580w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-768x514.png 768w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-940x630.png 940w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered.png 1551w" sizes="(max-width: 580px) 100vw, 580px" /></a></aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	
+	<div id="publisho-footer" class="widget-area">
+				<div class="footer-widget">
+                				</div>
+				<div class="footer-widget">
+								</div>
+				<div class="footer-widget">
+								</div>
+	</div>
+
+	<div class="site-wordpress">
+					&copy; Krebs on Security - <a rel="me" href="https://infosec.exchange/@briankrebs">Mastodon</a> <br />
+  </div>
+	<!-- .site-info --><div class="clear"></div>
+</div><!-- #page -->
+
+<script type='text/javascript' src='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/slicknav.js?ver=6.2.2' id='publisho-mobile-navigation-js'></script>
+</body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+Object Caching 154/433 objects using memcached
+Page Caching using memcached 
+Database Caching using memcached
+
+Served from: krebsonsecurity.com @ 2025-05-23 23:16:18 by W3 Total Cache
+-->
