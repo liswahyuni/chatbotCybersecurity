@@ -1,4 +1,5 @@
 # Cybersecurity RAG Chatbot
+by: Lis Wahyuni
 
 A Retrieval-Augmented Generation (RAG) chatbot specialized in cybersecurity knowledge, designed to provide accurate and contextually relevant information by leveraging local documents and language models.
 
